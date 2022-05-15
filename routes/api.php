@@ -28,10 +28,11 @@ route::post('login',[AuthController::class,'login']);
 Route::middleware('auth:api')->group(function(){
     Route::get('/profile', [AuthController::class, 'profile']);
     Route::post('logout', [AuthController::class, 'logout']);
-    Route::get('articles', [ArticleController::class, 'index']);
     Route::get('article/{id}', [ArticleController::class, 'get']);
     Route::post('article/add', [ArticleController::class, 'post']);
     Route::post('article/edit/{id}', [ArticleController::class, 'update']);
     Route::get('article/delete/{id}', [ArticleController::class, 'destroy']);
 });
+
+Route::get('articles', [ArticleController::class, 'index']);
 
